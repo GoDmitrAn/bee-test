@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { SharedLayout } from "components/SharedLayout/SharedLayout";
+
+const Home = lazy(() => import("./components/pages/Home"));
+const Table = lazy(() => import("./components/pages/Table"));
+const HouseBee = lazy(() => import("./components/pages/HouseBee"));
+const HoneyComb = lazy(() => import("./components/pages/HoneyComb"));
+const Honey = lazy(() => import("./components/pages/Honey"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="table" element={<Table />} />
+        <Route path="housebee" element={<HouseBee />} />
+        <Route path="honeycomb" element={<HoneyComb />} />
+        <Route path="honey" element={<Honey />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 }
 
