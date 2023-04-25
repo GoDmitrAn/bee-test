@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkbee_test=self.webpackChunkbee_test||[]).push([[212],{212:function(e,n,t){t.r(n),t.d(n,{default:function(){return l}});var i,r=t(168),a=t(934).Z.h1(i||(i=(0,r.Z)(["\n  text-align: center;\n  max-width: 470px;\n  margin: auto;\n"]))),s=t(184),l=function(){return(0,s.jsx)("main",{children:(0,s.jsx)("div",{children:(0,s.jsxs)(a,{children:[" ","Follow your favorite tweets"," ",(0,s.jsx)("span",{role:"img","aria-label":"Greeting icon",children:"\ud83d\udc81\u200d\u2640\ufe0f"})]})})})}}}]);
+//# sourceMappingURL=212.e1dce00f.chunk.js.map

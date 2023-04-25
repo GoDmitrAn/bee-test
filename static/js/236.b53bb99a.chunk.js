@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkbee_test=self.webpackChunkbee_test||[]).push([[236],{236:function(e,n,i){i.r(n);var s=i(184);n.default=function(){return(0,s.jsx)("main",{children:(0,s.jsx)("div",{children:(0,s.jsxs)("h1",{children:["Honey",(0,s.jsx)("span",{role:"img","aria-label":"Greeting icon",children:"\ud83d\udc81\u200d\u2640\ufe0f"})]})})})}}}]);
+//# sourceMappingURL=236.b53bb99a.chunk.js.map
