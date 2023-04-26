@@ -4,7 +4,9 @@ import { Header } from "./AppBar.styled";
 export const AppBar = () => {
   return (
     <Header>
-      <Navigation />
+      <div className="header-content">
+        <Navigation />
+      </div>
     </Header>
   );
 };

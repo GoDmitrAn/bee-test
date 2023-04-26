@@ -1,15 +1,30 @@
 import styled from "@emotion/styled";
 
 export const Header = styled.header`
+  font-family: "Roboto";
+  font-weight: 400;
+  background-color: #e1c34b;
+  width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px 0;
-  margin-bottom: 16px;
-  border-bottom: 1px solid black;
+  padding: 17px 0;
 
-  > nav {
-    display: flex;
+  .header-content {
+    max-width: 1020px;
+    width: 100%;
+
+    margin: 0 auto;
+    > nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .middle {
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 `;

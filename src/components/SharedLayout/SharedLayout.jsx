@@ -5,11 +5,13 @@ import { Outlet } from "react-router-dom";
 import { Container } from "./SharedLayout.styled";
 export const SharedLayout = () => {
   return (
-    <Container>
+    <>
       <AppBar />
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
-      </Suspense>
-    </Container>
+      <Container>
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Outlet />
+        </Suspense>
+      </Container>
+    </>
   );
 };

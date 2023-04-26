@@ -1,17 +1,9 @@
-import { HomeTitle } from "../Home/Home.styled";
+import { PageTitle } from "components/SharedLayout/SharedLayout.styled";
 
 const Home = () => {
   return (
     <main>
-      <div>
-        <HomeTitle>
-          {" "}
-          Follow your favorite tweets{" "}
-          <span role="img" aria-label="Greeting icon">
-            💁‍♀️
-          </span>
-        </HomeTitle>
-      </div>
+      <PageTitle>Фильтр результатов</PageTitle>
     </main>
   );
 };

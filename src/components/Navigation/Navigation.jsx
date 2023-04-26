@@ -1,13 +1,74 @@
-import { Link } from "./Navigation.styled";
+import { useState } from "react";
+import {
+  DropDownMenu,
+  DropDownMenuItem,
+  NavigationLink,
+  Logo,
+  MenuItemTitle,
+  SubMenuBox,
+  SubMenuBtn,
+  SubMenuLink,
+  RegistrBtn,
+} from "./Navigation.styled";
+import LogoImg from "../../assets/image/Logo.png";
+import { IoMdArrowDropup } from "react-icons/io";
 
 export const Navigation = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <nav>
-      <Link to="/">home</Link>
-      <Link to="housebee">housebee</Link>
-      <Link to="honeycomb">honeycomb</Link>
-      <Link to="honey">honey</Link>
-      <Link to="table">table</Link>
+      <NavigationLink to="/" className="logo">
+        <Logo src={LogoImg} alt="logo" />
+      </NavigationLink>
+      <div className="middle">
+        <SubMenuBox>
+          <SubMenuBtn type="button" onClick={toggleDropdown}>
+            Пчелы
+            <IoMdArrowDropup size="1.2em" />
+          </SubMenuBtn>
+          {isDropdownOpen && (
+            <DropDownMenu>
+              <DropDownMenuItem>
+                <MenuItemTitle>Индийская пчела</MenuItemTitle>
+                <ul>
+                  <li>
+                    <SubMenuLink>Красная</SubMenuLink>
+                  </li>
+                  <li>
+                    <SubMenuLink>Розовая</SubMenuLink>
+                  </li>
+                  <li>
+                    <SubMenuLink>Черная</SubMenuLink>
+                  </li>
+                </ul>
+              </DropDownMenuItem>
+              <DropDownMenuItem>
+                <MenuItemTitle>Арликовая пчела</MenuItemTitle>
+                <ul>
+                  <li>
+                    <SubMenuLink>Красная</SubMenuLink>
+                  </li>
+                  <li>
+                    <SubMenuLink>Розовая</SubMenuLink>
+                  </li>
+                  <li>
+                    <SubMenuLink>Черная</SubMenuLink>
+                  </li>
+                </ul>
+              </DropDownMenuItem>
+            </DropDownMenu>
+          )}
+        </SubMenuBox>
+        <NavigationLink to="housebee">Дом пчелы</NavigationLink>
+        <NavigationLink to="honeycomb">Соты</NavigationLink>
+        <NavigationLink to="honey">Мёд</NavigationLink>
+        <NavigationLink to="table">Таблица данных</NavigationLink>
+      </div>
+      <RegistrBtn>Регистрация</RegistrBtn>
     </nav>
   );
 };
