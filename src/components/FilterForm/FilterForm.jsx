@@ -19,11 +19,20 @@ import {
   StyledSlider,
   TitleBox,
   ToggleButtonSelectBee,
+  ClothesType,
   TypesBee,
+  SubmitResetBtn,
+  BottomBox,
 } from "./FilterForm.styled";
 import StarRating from "components/StarRating/StarRating";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { GrFormClose } from "react-icons/gr";
+import { GiArmoredPants } from "react-icons/gi";
+import { GiSleevelessJacket } from "react-icons/gi";
+import { GiPirateCoat } from "react-icons/gi";
+import { GiSonicShoes } from "react-icons/gi";
+import { GiSwimfins } from "react-icons/gi";
+import { GiJesterHat } from "react-icons/gi";
 
 export const FilterForm = () => {
   const [selectedTypesBee, setSelectedTypesBee] = useState([]);
@@ -32,6 +41,7 @@ export const FilterForm = () => {
   const [rangeValues, setRangeValues] = useState([0, 100]);
   const [selectedProducer, setSelectedProducer] = useState([]);
   const [rating, setRating] = useState(0);
+  const [clothType, setClothType] = useState(null);
   const allBeeTypes = ["bigIndianBee", "honeyBee", "indianBee", "arlicBee"];
   const allBeeTypesName = {
     bigIndianBee: "Большая индийская пчела",
@@ -66,6 +76,10 @@ export const FilterForm = () => {
       Array.from(event.target.selectedOptions, (option) => option.value)
     );
   };
+  const handleClothChange = (event) => {
+    const value = event.target.value;
+    setClothType(value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     // Read the form data
@@ -75,6 +89,7 @@ export const FilterForm = () => {
   const handleReset = () => {
     setListBeesByHairiness([]);
     setSelectedTypesBee([]);
+    setRating(0);
   };
   const handleDelete = (event) => {
     const type = event.currentTarget.dataset.select;
@@ -200,7 +215,7 @@ export const FilterForm = () => {
           </Producer>
         </FormMainItem>
         <FormMainItem>
-          <div>
+          <div style={{ marginRight: "85px" }}>
             <TitleBox>Волосатость брюшка пчелы</TitleBox>
             <div style={{ position: "relative" }}>
               <SelectWrapper>
@@ -220,7 +235,10 @@ export const FilterForm = () => {
                           data-select={item}
                           onClick={handleDelete}
                         >
-                          <GrFormClose viewBox="4 7 14 26" />
+                          <GrFormClose
+                            viewBox="4 7 14 26"
+                            className="delete-icon"
+                          />
                         </DeleteFromSelected>
                         <span> {allBeeTypesName[item]}</span>
                       </li>
@@ -258,42 +276,102 @@ export const FilterForm = () => {
               )}
             </div>
           </div>
+          <div>
+            <TitleBox style={{ marginBottom: "10px" }}>
+              Выбрать тип одежды
+            </TitleBox>
+            <ClothesType>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option1"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiArmoredPants
+                  className="cloth-icon"
+                  viewBox="-60 0 612 512"
+                />
+              </Label>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option2"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiSleevelessJacket
+                  className="cloth-icon"
+                  viewBox="-60 0 612 512"
+                />
+              </Label>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option3"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiPirateCoat className="cloth-icon" viewBox="-60 0 612 512" />
+              </Label>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option4"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiSonicShoes className="cloth-icon" viewBox="-60 0 612 512" />
+              </Label>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option5"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiSwimfins className="cloth-icon" viewBox="-60 0 612 512" />
+              </Label>
+              <Label>
+                <input
+                  type="radio"
+                  name="cloth"
+                  value="option6"
+                  className="cloth"
+                  onClick={handleClothChange}
+                />
+                <GiJesterHat className="cloth-icon" viewBox="-60 0 612 512" />
+              </Label>
+            </ClothesType>
+          </div>
         </FormMainItem>
       </FormMain>
 
-      <div>
-        Radio buttons:
-        <label>
-          <input type="radio" name="myRadio" value="option1" />
-          Option 1
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option2" />
-          Option 2
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option3" />
-          Option 3
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option4" />
-          Option 4
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option5" />
-          Option 5
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="option6" />
-          Option 6
-        </label>
-      </div>
-      <div>
-        <button type="submit">Отправить</button>
-        <button type="reset" onClick={handleReset}>
+      <BottomBox>
+        <SubmitResetBtn
+          type="submit"
+          style={{ marginRight: "105px" }}
+          disabled={
+            selectedTypesBee.length === 0 ||
+            selectedProducer.length === 0 ||
+            listBeesByHairiness.length === 0 ||
+            clothType === null ||
+            rating === 0
+              ? true
+              : false
+          }
+        >
+          Отправить
+        </SubmitResetBtn>
+        <SubmitResetBtn type="reset" onClick={handleReset}>
           Сбросить
-        </button>
-      </div>
+        </SubmitResetBtn>
+      </BottomBox>
     </form>
   );
 };

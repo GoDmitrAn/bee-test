@@ -4,7 +4,9 @@ import ReactSlider from "react-slider";
 import { SiSony } from "react-icons/si";
 
 export const FormMain = styled.ul`
-  padding-bottom: 150px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e1c34b;
+  margin-bottom: 55px;
 `;
 export const FormMainItem = styled.li`
   display: flex;
@@ -90,6 +92,7 @@ export const Label = styled.label`
     font-size: 16px;
     line-height: 1.9;
     color: #e1c34b;
+    transition: color 250ms ease-in-out;
   }
   &:hover span {
     color: #665822;
@@ -205,15 +208,15 @@ export const DeleteFromSelected = styled.button`
   height: 12px;
   border: none;
   outline: none;
-  /* position: relative; */
   font-size: 1.5rem;
   z-index: 100;
   cursor: pointer;
   margin-right: 10px;
+  background-color: transparent;
 `;
 export const SelectedList = styled.ul`
   box-sizing: border-box;
-  width: 430px;
+  width: 470px;
   height: 30px;
   background: #fff;
   display: flex;
@@ -234,4 +237,54 @@ export const Select = styled.select`
   padding: 16px;
   font-family: "Roboto";
   font-size: 14px;
+  background-color: #fff;
+  z-index: 10;
+`;
+export const ClothesType = styled.div`
+  display: flex;
+  .cloth {
+    appearance: none;
+
+    &:hover + .cloth-icon,
+    &:checked + .cloth-icon {
+      color: #333333;
+      background-color: #feeda9;
+    }
+  }
+  .cloth-icon {
+    font-size: 80px;
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  }
+`;
+export const BottomBox = styled.div`
+  display: flex;
+  width: 100%;
+  padding-bottom: 100px;
+`;
+export const SubmitResetBtn = styled.button`
+  cursor: pointer;
+  font-family: "Roboto";
+  display: flex;
+  width: 180px;
+  height: 50px;
+  border: 2px solid #665822;
+  color: #665822;
+  line-height: 1.4;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  &:hover {
+    background-color: #665822;
+    color: #ffdc55;
+  }
+  &:disabled {
+    opacity: 0.3;
+  }
+  &:disabled:hover {
+    background-color: transparent;
+    color: #665822;
+    cursor: not-allowed;
+  }
 `;
