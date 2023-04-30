@@ -1,10 +1,23 @@
 import styled from "@emotion/styled";
 import { BsCheck } from "react-icons/bs";
 import ReactSlider from "react-slider";
+import { SiSony } from "react-icons/si";
 
-export const FormMain = styled.ul``;
+export const FormMain = styled.ul`
+  padding-bottom: 150px;
+`;
 export const FormMainItem = styled.li`
   display: flex;
+  border-top: 1px solid #e1c34b;
+  &:first-of-type {
+    padding: 45px 0;
+  }
+  &:nth-of-type(2) {
+    padding: 30px 0;
+  }
+  &:last-child {
+    padding-top: 35px;
+  }
 `;
 export const TypesBee = styled.ul`
   width: 250px;
@@ -43,6 +56,7 @@ export const CheckInput = styled.input`
   &:checked ~ span {
     color: #665822;
   }
+
   &.producer {
     border-radius: 50%;
     &:checked::before {
@@ -50,7 +64,10 @@ export const CheckInput = styled.input`
     }
     &:checked + svg {
       display: block;
-      top: 12px;
+      top: 45%;
+    }
+    span {
+      line-height: 0;
     }
   }
 `;
@@ -73,6 +90,9 @@ export const Label = styled.label`
     font-size: 16px;
     line-height: 1.9;
     color: #e1c34b;
+  }
+  &:hover span {
+    color: #665822;
   }
 `;
 export const PriceBox = styled.div`
@@ -149,3 +169,69 @@ export const PriceValueItem = styled.li`
 `;
 export const Producer = styled.ul``;
 export const ProducerItem = styled.li``;
+export const SonyIcon = styled(SiSony)`
+  display: block;
+  width: 8rem;
+  height: 3rem;
+`;
+export const TitleBox = styled.h2`
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 24px;
+`;
+export const SelectWrapper = styled.div`
+  position: relative;
+`;
+export const ToggleButtonSelectBee = styled.button`
+  position: absolute;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+`;
+export const DeleteFromSelected = styled.button`
+  display: flex;
+  padding: 0;
+  width: 12px;
+  height: 12px;
+  border: none;
+  outline: none;
+  /* position: relative; */
+  font-size: 1.5rem;
+  z-index: 100;
+  cursor: pointer;
+  margin-right: 10px;
+`;
+export const SelectedList = styled.ul`
+  box-sizing: border-box;
+  width: 430px;
+  height: 30px;
+  background: #fff;
+  display: flex;
+  padding: 0 16px;
+  li {
+    span {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+`;
+export const Select = styled.select`
+  display: block;
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  overflow: hidden;
+  padding: 16px;
+  font-family: "Roboto";
+  font-size: 14px;
+`;

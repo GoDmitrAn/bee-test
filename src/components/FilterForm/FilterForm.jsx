@@ -1,8 +1,9 @@
 import { useState } from "react";
-// import ReactSlider from "react-slider";
+
 import {
   CheckIcon,
   CheckInput,
+  DeleteFromSelected,
   FormMain,
   FormMainItem,
   Label,
@@ -11,9 +12,18 @@ import {
   PriceValueItem,
   Producer,
   ProducerItem,
+  Select,
+  SelectWrapper,
+  SelectedList,
+  SonyIcon,
   StyledSlider,
+  TitleBox,
+  ToggleButtonSelectBee,
   TypesBee,
 } from "./FilterForm.styled";
+import StarRating from "components/StarRating/StarRating";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { GrFormClose } from "react-icons/gr";
 
 export const FilterForm = () => {
   const [selectedTypesBee, setSelectedTypesBee] = useState([]);
@@ -21,6 +31,7 @@ export const FilterForm = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [rangeValues, setRangeValues] = useState([0, 100]);
   const [selectedProducer, setSelectedProducer] = useState([]);
+  const [rating, setRating] = useState(0);
   const allBeeTypes = ["bigIndianBee", "honeyBee", "indianBee", "arlicBee"];
   const allBeeTypesName = {
     bigIndianBee: "Большая индийская пчела",
@@ -66,7 +77,7 @@ export const FilterForm = () => {
     setSelectedTypesBee([]);
   };
   const handleDelete = (event) => {
-    const type = event.target.dataset.select;
+    const type = event.currentTarget.dataset.select;
     setListBeesByHairiness((prevSelectedTypes) =>
       prevSelectedTypes.filter((prevType) => prevType !== type)
     );
@@ -79,6 +90,7 @@ export const FilterForm = () => {
       <FormMain>
         <FormMainItem>
           <PriceBox>
+            <TitleBox>Цена</TitleBox>
             <PriceValue>
               <PriceValueItem>
                 от
@@ -111,27 +123,35 @@ export const FilterForm = () => {
               minDistance={10}
             />
           </PriceBox>
-          <TypesBee>
-            {allBeeTypes.map((type, index) => {
-              return (
-                <li key={type}>
-                  <Label>
-                    <CheckInput
-                      type="checkbox"
-                      value={type}
-                      name="typesBee"
-                      onClick={handleCheckboxChange}
-                    />
-                    <CheckIcon size="2rem" />
-                    <span> {allBeeTypesName[type]}</span>
-                  </Label>
-                </li>
-              );
-            })}
-          </TypesBee>
+          <div>
+            <TitleBox>Вид пчел</TitleBox>
+            <TypesBee>
+              {allBeeTypes.map((type, index) => {
+                return (
+                  <li key={type}>
+                    <Label>
+                      <CheckInput
+                        type="checkbox"
+                        value={type}
+                        name="typesBee"
+                        onClick={handleCheckboxChange}
+                      />
+                      <CheckIcon size="2rem" />
+                      <span> {allBeeTypesName[type]}</span>
+                    </Label>
+                  </li>
+                );
+              })}
+            </TypesBee>
+          </div>
         </FormMainItem>
         <FormMainItem>
+          <div>
+            <TitleBox>Рейтинг пчел</TitleBox>
+            <StarRating rating={rating} setRating={setRating} />
+          </div>
           <Producer>
+            <TitleBox>Выбрать производителя</TitleBox>
             <ProducerItem>
               <Label>
                 <CheckInput
@@ -142,7 +162,9 @@ export const FilterForm = () => {
                   className="producer"
                 />
                 <CheckIcon size="2rem" />
-                <span>Option 1</span>
+                <span>
+                  <SonyIcon viewBox="8 7 8 10" />
+                </span>
               </Label>
             </ProducerItem>
             <ProducerItem>
@@ -155,7 +177,9 @@ export const FilterForm = () => {
                   className="producer"
                 />
                 <CheckIcon size="2rem" />
-                <span>Option 2</span>
+                <span>
+                  <SonyIcon viewBox="8 7 8 10" />
+                </span>
               </Label>
             </ProducerItem>
             <ProducerItem>
@@ -168,55 +192,75 @@ export const FilterForm = () => {
                   className="producer"
                 />
                 <CheckIcon size="2rem" />
-                <span>Option 3</span>
+                <span>
+                  <SonyIcon viewBox="8 7 8 10" />
+                </span>
               </Label>
             </ProducerItem>
           </Producer>
         </FormMainItem>
-        <FormMainItem></FormMainItem>
+        <FormMainItem>
+          <div>
+            <TitleBox>Волосатость брюшка пчелы</TitleBox>
+            <div style={{ position: "relative" }}>
+              <SelectWrapper>
+                <SelectedList>
+                  {listBeesByHairiness.map((item) => {
+                    return (
+                      <li
+                        key={item}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: "15px",
+                        }}
+                      >
+                        <DeleteFromSelected
+                          type="button"
+                          data-select={item}
+                          onClick={handleDelete}
+                        >
+                          <GrFormClose viewBox="4 7 14 26" />
+                        </DeleteFromSelected>
+                        <span> {allBeeTypesName[item]}</span>
+                      </li>
+                    );
+                  })}
+                </SelectedList>
+                <ToggleButtonSelectBee
+                  type="button"
+                  onClick={toggleDropDownSelect}
+                >
+                  <IoMdArrowDropdown
+                    size="1.5rem"
+                    style={{ marginLeft: "auto" }}
+                  />
+                </ToggleButtonSelectBee>
+              </SelectWrapper>
+              {isDropDownOpen && (
+                <Select
+                  name="beeTypes"
+                  multiple={true}
+                  value={listBeesByHairiness}
+                  onChange={handleSelectedChange}
+                >
+                  {allBeeTypes.map((type) => (
+                    <option
+                      key={type}
+                      value={type}
+                      disabled={selectedTypesBee.includes(type) ? false : true}
+                      style={{ marginBottom: "5px" }}
+                    >
+                      {allBeeTypesName[type]}
+                    </option>
+                  ))}
+                </Select>
+              )}
+            </div>
+          </div>
+        </FormMainItem>
       </FormMain>
 
-      <div>
-        <div>
-          <ul style={{ maxWidth: "300px", height: "30px", background: "#fff" }}>
-            {listBeesByHairiness.map((item) => {
-              return (
-                <li key={item}>
-                  <button
-                    type="button"
-                    data-select={item}
-                    onClick={handleDelete}
-                  >
-                    del
-                  </button>
-                  {item}
-                </li>
-              );
-            })}
-          </ul>
-          <button type="button" onClick={toggleDropDownSelect}>
-            open
-          </button>
-        </div>
-        {isDropDownOpen && (
-          <select
-            name="beeTypes"
-            multiple={true}
-            value={listBeesByHairiness}
-            onChange={handleSelectedChange}
-          >
-            {allBeeTypes.map((type) => (
-              <option
-                key={type}
-                value={type}
-                disabled={selectedTypesBee.includes(type) ? false : true}
-              >
-                {allBeeTypesName[type]}
-              </option>
-            ))}
-          </select>
-        )}
-      </div>
       <div>
         Radio buttons:
         <label>
