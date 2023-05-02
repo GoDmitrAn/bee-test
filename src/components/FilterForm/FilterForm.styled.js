@@ -7,6 +7,9 @@ export const FormMain = styled.ul`
   padding-bottom: 12px;
   border-bottom: 1px solid #e1c34b;
   margin-bottom: 55px;
+  @media (max-width: 1080px) {
+    padding-bottom: 40px;
+  }
 `;
 export const FormMainItem = styled.li`
   display: flex;
@@ -19,6 +22,18 @@ export const FormMainItem = styled.li`
   }
   &:last-child {
     padding-top: 35px;
+  }
+  @media (max-width: 1080px) {
+    display: block;
+    &:first-of-type {
+      padding: 27px 0 37px;
+    }
+    &:nth-of-type(2) {
+      padding-top: 20px;
+    }
+    &:last-child {
+      padding-top: 30px;
+    }
   }
 `;
 export const TypesBee = styled.ul`
@@ -101,7 +116,19 @@ export const Label = styled.label`
 export const PriceBox = styled.div`
   min-width: 200px;
   margin-right: 85px;
+  @media (max-width: 1080px) {
+    width: 100%;
+    margin-right: 0;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #e1c34b;
+  }
 `;
+export const TypesBeeWrapper = styled.div`
+  @media (max-width: 1080px) {
+    padding-top: 28px;
+  }
+`;
+
 export const StyledSlider = styled(ReactSlider)`
   width: 100%;
   height: 2px;
@@ -149,6 +176,10 @@ export const PriceValue = styled.ul`
   display: flex;
   width: 470px;
   justify-content: space-between;
+  @media (max-width: 1080px) {
+    width: 100%;
+    margin-bottom: 36px;
+  }
 `;
 export const PriceValueItem = styled.li`
   display: flex;
@@ -170,7 +201,20 @@ export const PriceValueItem = styled.li`
   span {
   }
 `;
-export const Producer = styled.ul``;
+export const StarWrapper = styled.div`
+  @media (max-width: 1080px) {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e1c34b;
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
+`;
+export const Producer = styled.ul`
+  @media (max-width: 1080px) {
+    padding-top: 24px;
+  }
+`;
 export const ProducerItem = styled.li``;
 export const SonyIcon = styled(SiSony)`
   display: block;
@@ -183,6 +227,14 @@ export const TitleBox = styled.h2`
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 24px;
+`;
+export const BeesHairlessWrap = styled.div`
+  margin-right: 85px;
+  @media (max-width: 1080px) {
+    margin-right: 0;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e1c34b;
+  }
 `;
 export const SelectWrapper = styled.div`
   position: relative;
@@ -227,6 +279,9 @@ export const SelectedList = styled.ul`
       line-height: 1.7;
     }
   }
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
 `;
 export const Select = styled.select`
   display: block;
@@ -239,6 +294,11 @@ export const Select = styled.select`
   font-size: 14px;
   background-color: #fff;
   z-index: 10;
+`;
+export const ClothWrapper = styled.div`
+  @media (max-width: 1080px) {
+    padding-top: 28px;
+  }
 `;
 export const ClothesType = styled.div`
   display: flex;

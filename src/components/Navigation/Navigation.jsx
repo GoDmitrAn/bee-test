@@ -11,6 +11,7 @@ import {
   SubMenuBtn,
   SubMenuLink,
   RegistrBtn,
+  MainMenu,
 } from "./Navigation.styled";
 import LogoImg from "../../assets/image/Logo.png";
 import { IoMdArrowDropup } from "react-icons/io";
@@ -24,11 +25,11 @@ export const Navigation = () => {
   };
   return (
     <>
+      <NavigationLink to="/" className="logo">
+        <Logo src={LogoImg} alt="logo" />
+      </NavigationLink>
       <nav>
-        <NavigationLink to="/" className="logo">
-          <Logo src={LogoImg} alt="logo" />
-        </NavigationLink>
-        <div className="middle">
+        <MainMenu className="middle">
           <SubMenuBox>
             <SubMenuBtn type="button" onClick={toggleDropdown}>
               Пчелы
@@ -71,7 +72,7 @@ export const Navigation = () => {
           <NavigationLink to="honeycomb">Соты</NavigationLink>
           <NavigationLink to="honey">Мёд</NavigationLink>
           <NavigationLink to="table">Таблица данных</NavigationLink>
-        </div>
+        </MainMenu>
         <RegistrBtn type="button" onClick={() => setIsModalOpen(true)}>
           Регистрация
         </RegistrBtn>

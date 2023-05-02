@@ -23,6 +23,10 @@ import {
   TypesBee,
   SubmitResetBtn,
   BottomBox,
+  TypesBeeWrapper,
+  StarWrapper,
+  BeesHairlessWrap,
+  ClothWrapper,
 } from "./FilterForm.styled";
 import StarRating from "components/StarRating/StarRating";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -138,7 +142,7 @@ export const FilterForm = () => {
               minDistance={10}
             />
           </PriceBox>
-          <div>
+          <TypesBeeWrapper>
             <TitleBox>Вид пчел</TitleBox>
             <TypesBee>
               {allBeeTypes.map((type, index) => {
@@ -158,13 +162,13 @@ export const FilterForm = () => {
                 );
               })}
             </TypesBee>
-          </div>
+          </TypesBeeWrapper>
         </FormMainItem>
         <FormMainItem>
-          <div>
+          <StarWrapper>
             <TitleBox>Рейтинг пчел</TitleBox>
             <StarRating rating={rating} setRating={setRating} />
-          </div>
+          </StarWrapper>
           <Producer>
             <TitleBox>Выбрать производителя</TitleBox>
             <ProducerItem>
@@ -215,7 +219,7 @@ export const FilterForm = () => {
           </Producer>
         </FormMainItem>
         <FormMainItem>
-          <div style={{ marginRight: "85px" }}>
+          <BeesHairlessWrap>
             <TitleBox>Волосатость брюшка пчелы</TitleBox>
             <div style={{ position: "relative" }}>
               <SelectWrapper>
@@ -275,8 +279,8 @@ export const FilterForm = () => {
                 </Select>
               )}
             </div>
-          </div>
-          <div>
+          </BeesHairlessWrap>
+          <ClothWrapper>
             <TitleBox style={{ marginBottom: "10px" }}>
               Выбрать тип одежды
             </TitleBox>
@@ -348,7 +352,7 @@ export const FilterForm = () => {
                 <GiJesterHat className="cloth-icon" viewBox="-60 0 612 512" />
               </Label>
             </ClothesType>
-          </div>
+          </ClothWrapper>
         </FormMainItem>
       </FormMain>
 

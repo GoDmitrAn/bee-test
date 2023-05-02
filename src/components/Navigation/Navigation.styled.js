@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink, Link } from "react-router-dom";
 
+export const MainMenu = styled.div``;
 export const NavigationLink = styled(NavLink)`
   font-size: 18px;
   line-height: 1.9;

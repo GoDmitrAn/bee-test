@@ -15,9 +15,11 @@ export const Header = styled.header`
   .header-content {
     max-width: 1020px;
     width: 100%;
-
+    display: flex;
     margin: 0 auto;
     > nav {
+      width: 745px;
+      margin-left: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;

@@ -7,6 +7,9 @@ export const Container = styled.div`
   font-family: "Roboto";
   font-weight: 400;
   color: #665822;
+  @media (max-width: 1080px) {
+    max-width: 500px;
+  }
 `;
 export const PageTitle = styled.h1`
   font-size: 35px;
