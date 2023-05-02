@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/bee-test/static/css/main.53485310.css",
-    "main.js": "/bee-test/static/js/main.49c54b34.js",
-    "static/js/423.4c50f717.chunk.js": "/bee-test/static/js/423.4c50f717.chunk.js",
+    "main.css": "/bee-test/static/css/main.86c72a8e.css",
+    "main.js": "/bee-test/static/js/main.ece56579.js",
+    "static/js/423.209f8057.chunk.js": "/bee-test/static/js/423.209f8057.chunk.js",
     "static/js/308.2b578463.chunk.js": "/bee-test/static/js/308.2b578463.chunk.js",
     "static/js/220.8bef57fb.chunk.js": "/bee-test/static/js/220.8bef57fb.chunk.js",
     "static/js/19.b6aa1c63.chunk.js": "/bee-test/static/js/19.b6aa1c63.chunk.js",
     "static/js/236.b53bb99a.chunk.js": "/bee-test/static/js/236.b53bb99a.chunk.js",
     "static/js/787.6781dd5f.chunk.js": "/bee-test/static/js/787.6781dd5f.chunk.js",
-    "static/js/540.d25404da.chunk.js": "/bee-test/static/js/540.d25404da.chunk.js",
+    "static/js/706.2c10cc0b.chunk.js": "/bee-test/static/js/706.2c10cc0b.chunk.js",
     "static/media/Roboto-Regular.ttf": "/bee-test/static/media/Roboto-Regular.03523cf578d69fa92322.ttf",
     "static/media/Roboto-Bold.ttf": "/bee-test/static/media/Roboto-Bold.4f39c5796e60c9d8e732.ttf",
     "index.html": "/bee-test/index.html",
-    "main.53485310.css.map": "/bee-test/static/css/main.53485310.css.map",
-    "main.49c54b34.js.map": "/bee-test/static/js/main.49c54b34.js.map",
-    "423.4c50f717.chunk.js.map": "/bee-test/static/js/423.4c50f717.chunk.js.map",
+    "main.86c72a8e.css.map": "/bee-test/static/css/main.86c72a8e.css.map",
+    "main.ece56579.js.map": "/bee-test/static/js/main.ece56579.js.map",
+    "423.209f8057.chunk.js.map": "/bee-test/static/js/423.209f8057.chunk.js.map",
     "308.2b578463.chunk.js.map": "/bee-test/static/js/308.2b578463.chunk.js.map",
     "220.8bef57fb.chunk.js.map": "/bee-test/static/js/220.8bef57fb.chunk.js.map",
     "19.b6aa1c63.chunk.js.map": "/bee-test/static/js/19.b6aa1c63.chunk.js.map",
     "236.b53bb99a.chunk.js.map": "/bee-test/static/js/236.b53bb99a.chunk.js.map",
     "787.6781dd5f.chunk.js.map": "/bee-test/static/js/787.6781dd5f.chunk.js.map",
-    "540.d25404da.chunk.js.map": "/bee-test/static/js/540.d25404da.chunk.js.map"
+    "706.2c10cc0b.chunk.js.map": "/bee-test/static/js/706.2c10cc0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53485310.css",
-    "static/js/main.49c54b34.js"
+    "static/css/main.86c72a8e.css",
+    "static/js/main.ece56579.js"
   ]
 }
