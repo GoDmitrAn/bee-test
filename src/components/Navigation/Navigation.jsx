@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Modal } from "components/Modal/Modal";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { TfiClose } from "react-icons/tfi";
+import { HiMinus, HiPlus } from "react-icons/hi";
 import {
   DropDownMenu,
   DropDownMenuItem,
@@ -15,28 +18,45 @@ import {
 } from "./Navigation.styled";
 import LogoImg from "../../assets/image/Logo.png";
 import { IoMdArrowDropup } from "react-icons/io";
+import { MobileMenuBtn } from "components/AppBar/AppBar.styled";
 
 export const Navigation = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
   return (
     <>
+      <MobileMenuBtn onClick={() => setMenuVisible(true)}>
+        <RxHamburgerMenu />
+      </MobileMenuBtn>
       <NavigationLink to="/" className="logo">
         <Logo src={LogoImg} alt="logo" />
       </NavigationLink>
-      <nav>
+      <nav className={menuVisible ? "show-menu" : ""}>
+        <MobileMenuBtn
+          className="close-btn"
+          onClick={() => setMenuVisible(false)}
+        >
+          <TfiClose />
+        </MobileMenuBtn>
         <MainMenu className="middle">
           <SubMenuBox>
             <SubMenuBtn type="button" onClick={toggleDropdown}>
               Пчелы
-              <IoMdArrowDropup size="1.2em" />
+              {isDropdownOpen ? (
+                <HiMinus className="mobile" />
+              ) : (
+                <HiPlus className="mobile" />
+              )}
+              <IoMdArrowDropup className="desctop" />
             </SubMenuBtn>
             {isDropdownOpen && (
-              <DropDownMenu>
+              <DropDownMenu className={isDropdownOpen ? "open" : ""}>
                 <DropDownMenuItem>
                   <MenuItemTitle>Индийская пчела</MenuItemTitle>
                   <ul>
